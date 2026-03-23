@@ -1,196 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meet Us</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-<style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Us</title>
+  <style>
+    /* GLOBAL STYLES */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('nahoon.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
 
-/* Background */
-.background {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url('nahoon.jpg') center/cover no-repeat;
-  filter: blur(8px);
-  z-index: -1;
-}
+    /* MAIN NAMES SECTION */
+    .names-section {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 50px 0;
+    }
 
-/* Landing */
-.landing {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100vh;
-}
+    .name-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
 
-.person {
-  text-align: center;
-  cursor: pointer;
-}
+    .name-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) brightness(0.8);
+      transition: transform 0.5s ease;
+      z-index: 1;
+    }
 
-.person img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 20px;
-  filter: blur(6px);
-  transition: 0.4s;
-}
+    .name-container:hover::before {
+      transform: scale(1.1);
+    }
 
-.person:hover img {
-  filter: blur(2px);
-}
+    .name-container h1 {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+      line-height: 200px;
+      font-size: 2em;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+      margin: 0;
+      pointer-events: none;
+    }
 
-.name {
-  margin-top: 10px;
-  font-size: 28px;
-  color: maroon;
-  font-family: 'Great Vibes', cursive;
-}
+    /* Different images for each name */
+    .name-container.ger::before {
+      background-image: url('her.jpg');
+    }
 
-/* Profile View */
-.profile {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-}
+    .name-container.him::before {
+      background-image: url('him.jpg');
+    }
 
-.id-card {
-  background: #fff5f7;
-  padding: 20px;
-  border-radius: 20px;
-  width: 300px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+    /* ID CARDS SECTION */
+    .idcards-section {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 0;
+    }
 
-.id-top {
-  display: flex;
-  gap: 15px;
-}
+    .id-card {
+      position: relative;
+      width: 250px;
+      height: 150px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 
-.id-top img {
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
-  object-fit: cover;
-}
+    .id-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(3px) brightness(0.8);
+      z-index: 1;
+      transition: transform 0.5s ease;
+    }
 
-.id-text {
-  font-family: 'Great Vibes', cursive;
-  color: maroon;
-  font-size: 18px;
-}
+    .id-card.ger::before {
+      background-image: url('her.jpg');
+    }
 
-.letter {
-  background: #fff;
-  padding: 30px;
-  border-radius: 20px;
-  width: 400px;
-  font-family: 'Great Vibes', cursive;
-  color: maroon;
-  font-size: 22px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+    .id-card.him::before {
+      background-image: url('him.jpg');
+    }
 
-.back {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  font-size: 18px;
-  color: maroon;
-}
-</style>
+    .id-card h2 {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      line-height: 150px;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
 
-<div class="background"></div>
+  <!-- Main Names Section -->
+  <section class="names-section">
+    <div class="name-container ger">
+      <h1>Ger</h1>
+    </div>
+    <div class="name-container him">
+      <h1>Him</h1>
+    </div>
+  </section>
 
-<!-- Landing -->
-<div class="landing" id="landing">
-  <div class="person" onclick="openProfile('person1')">
-    <img src="him.jpg">
-    <div class="name">Enkosi-Kwandolwethu</div>
-  </div>
-
-  <div class="person" onclick="openProfile('person2')">
-    <img src="her.jpg">
-    <div class="name">Luyanda</div>
-  </div>
-</div>
-
-<!-- Profile -->
-<div class="profile" id="profile">
-  <div class="back" onclick="goBack()">← Back</div>
-
-  <div class="id-card" id="idCard"></div>
-  <div class="letter" id="letter"></div>
-</div>
-
-<script>
-function openProfile(person) {
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('profile').style.display = 'flex';
-
-  if(person === 'person1') {
-    document.getElementById('idCard').innerHTML = `
-      <div class="id-top">
-        <img src="him.jpg">
-        <div class="id-text">
-          Name: Enkosi-Kwandolwethu💌<br>
-          Loves: Luyanda<br>
-          Status: Taken ❤️<br>
-          Since: Always
-        </div>
-      </div>
-    `;
-
-    document.getElementById('letter').innerHTML = `
-      I never thought something this soft could exist until I met you...<br><br>
-      You changed the way I see everything, even the quiet moments feel full now.<br><br>
-      If I had to choose again, it would still be you. Always you.
-    `;
-  }
-
-  if(person === 'person2') {
-    document.getElementById('idCard').innerHTML = `
-      <div class="id-top">
-        <img src="her.jpg">
-        <div class="id-text">
-          Name: Luyanda💌<br>
-          Loves: Enkosi-Kwandolwethu<br>
-          Status: Yours ❤️<br>
-          Since: The beginning
-        </div>
-      </div>
-    `;
-
-    document.getElementById('letter').innerHTML = `
-      Somehow, you became my favorite part of every day...<br><br>
-      You make everything feel lighter, softer, better.<br><br>
-      I didn't just fall for you... I found home in you.
-    `;
-  }
-}
-
-function goBack() {
-  document.getElementById('landing').style.display = 'flex';
-  document.getElementById('profile').style.display = 'none';
-}
-</script>
+  <!-- ID Cards Section -->
+  <section class="idcards-section">
+    <div class="id-card ger">
+      <h2>Ger</h2>
+    </div>
+    <div class="id-card him">
+      <h2>Him</h2>
+    </div>
+  </section>
 
 </body>
 </html>
