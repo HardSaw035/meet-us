@@ -1,122 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Us</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Us</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('nahoon.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: url('nahoon.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
+    /* MAIN NAMES SECTION */
+    .names-section {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 50px 0;
+    }
 
-/* SHARED FLEX SETTINGS */
-section {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding: 50px 20px;
-}
+    .name-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
 
-/* NAME CARDS */
-.name-container, .id-card {
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  cursor: pointer;
-}
+    .name-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) brightness(0.8);
+      transition: transform 0.5s ease;
+      z-index: 1;
+    }
 
-/* SIZE DIFFERENCE */
-.name-container {
-  width: 300px;
-  height: 200px;
-}
+    .name-container:hover::before {
+      transform: scale(1.1);
+    }
 
-.id-card {
-  width: 250px;
-  height: 150px;
-}
+    .name-container h1 {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+      line-height: 200px;
+      font-size: 2em;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+      margin: 0;
+      pointer-events: none;
+    }
 
-/* BACKGROUND IMAGE LAYER */
-.name-container::before,
-.id-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: blur(4px) brightness(0.75);
-  transition: transform 0.5s ease;
-  z-index: 1;
-}
+    /* IMAGE CLASSES */
+    .her::before {
+      background-image: url('her.jpg');
+    }
 
-/* HOVER EFFECT */
-.name-container:hover::before,
-.id-card:hover::before {
-  transform: scale(1.1);
-}
+    .him::before {
+      background-image: url('him.jpg');
+    }
 
-/* TEXT */
-.name-container h1,
-.id-card h2 {
-  position: relative;
-  z-index: 2;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin: 0;
-  text-shadow: 0 0 10px rgba(0,0,0,0.6);
-}
+    /* ID CARDS SECTION */
+    .idcards-section {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 0;
+    }
 
-/* IMAGE ASSIGNMENTS */
-.her::before {
-  background-image: url('her.jpg');
-}
+    .id-card {
+      position: relative;
+      width: 250px;
+      height: 150px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 
-.him::before {
-  background-image: url('him.jpg');
-}
+    .id-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(3px) brightness(0.8);
+      z-index: 1;
+      transition: transform 0.5s ease;
+    }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .name-container {
-    width: 90%;
-  }
-  .id-card {
-    width: 80%;
-  }
-}
-</style>
+    .id-card:hover::before {
+      transform: scale(1.1);
+    }
+
+    .id-card h2 {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      line-height: 150px;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+      margin: 0;
+    }
+  </style>
 </head>
-
 <body>
 
-<section>
-  <div class="name-container her">
-    <h1>Her</h1>
-  </div>
+  <!-- Main Names Section -->
+  <section class="names-section">
+    <div class="name-container her">
+      <h1>Her</h1>
+    </div>
+    <div class="name-container him">
+      <h1>Him</h1>
+    </div>
+  </section>
 
-  <div class="name-container him">
-    <h1>Him</h1>
-  </div>
-</section>
-
-<section>
-  <div class="id-card her">
-    <h2>Her</h2>
-  </div>
-
-  <div class="id-card him">
-    <h2>Him</h2>
-  </div>
-</section>
+  <!-- ID Cards Section -->
+  <section class="idcards-section">
+    <div class="id-card her">
+      <h2>Her</h2>
+    </div>
+    <div class="id-card him">
+      <h2>Him</h2>
+    </div>
+  </section>
 
 </body>
 </html>
