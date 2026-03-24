@@ -1,112 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Us</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Us</title>
+  <style>
+    /* GLOBAL STYLES */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('nahoon.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('nahoon.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
+    /* MAIN NAMES SECTION */
+    .names-section {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 50px 0;
+    }
 
-/* SOFT OVERLAY */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-}
+    .name-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
 
-/* CONTAINER */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  gap: 50px;
-}
+    .name-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) brightness(0.8);
+      transition: transform 0.5s ease;
+      z-index: 1;
+    }
 
-/* CARD */
-.card {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  border-radius: 25px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.4s ease;
-  z-index: 1;
-}
+    .name-container:hover::before {
+      transform: scale(1.1);
+    }
 
-.card:hover {
-  transform: scale(1.05);
-}
+    .name-container h1 {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+      line-height: 200px;
+      font-size: 2em;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+      margin: 0;
+      pointer-events: none;
+    }
 
-/* BLURRED IMAGE */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px) brightness(0.7);
-  transition: transform 0.5s ease;
-}
+    /* Different images for each name */
+    .name-container.ger::before {
+      background-image: url('her.jpg');
+    }
 
-.card:hover::before {
-  transform: scale(1.1);
-}
+    .name-container.him::before {
+      background-image: url('him.jpg');
+    }
 
-/* TEXT — ROMANTIC STYLE */
-.card h1 {
-  position: relative;
-  z-index: 2;
-  color: maroon;              /* red/maroon color */
-  font-family: 'Brush Script MT', cursive; /* cursive font */
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5em;
-  letter-spacing: 1px;
-  margin: 0;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
-}
+    /* ID CARDS SECTION */
+    .idcards-section {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 0;
+    }
 
-/* IMAGES */
-.person1::before {
-  background-image: url('her.jpg');
-}
+    .id-card {
+      position: relative;
+      width: 250px;
+      height: 150px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 
-.person2::before {
-  background-image: url('him.jpg');
-}
-</style>
+    .id-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(3px) brightness(0.8);
+      z-index: 1;
+      transition: transform 0.5s ease;
+    }
+
+    .id-card.ger::before {
+      background-image: url('her.jpg');
+    }
+
+    .id-card.him::before {
+      background-image: url('him.jpg');
+    }
+
+    .id-card h2 {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      line-height: 150px;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+      margin: 0;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <!-- Main Names Section -->
+  <section class="names-section">
+    <div class="name-container ger">
+      <h1>Her</h1>
+    </div>
+    <div class="name-container him">
+      <h1>Him</h1>
+    </div>
+  </section>
 
-  <div class="card person1" onclick="goToPage('her.html')">
-    <h1>Her Name</h1>
-  </div>
-
-  <div class="card person2" onclick="goToPage('him.html')">
-    <h1>Your Name</h1>
-  </div>
-
-</div>
-
-<script>
-function goToPage(page) {
-  window.location.href = page;
-}
-</script>
+  <!-- ID Cards Section -->
+  <section class="idcards-section">
+    <div class="id-card ger">
+      <h2>Her</h2>
+    </div>
+    <div class="id-card him">
+      <h2>Him</h2>
+    </div>
+  </section>
 
 </body>
 </html>
